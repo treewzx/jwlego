@@ -1,0 +1,54 @@
+/* miniprogram/pages/lego/admin_manage/admin_manage.wxss */
+.container{
+  margin-top: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.addcontainer{
+  margin-top: 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.title {
+  width: 25%;
+  text-align: right;
+  justify-items: center;
+}
+
+.btn {
+  background: #26cd58;
+  margin-top: 80rpx;
+  height: 90rpx;
+  width: 80%;
+  line-height: 90rpx;
+}
+
+.inpuContent {
+  width: 60%;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 10rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #26cd58;
+  text-align: left;
+  justify-items: center;
+  justify-content: center;
+}
+
+.content {
+  width: 55%;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding-left: 10rpx;
+  text-align: left;
+  justify-items: center;
+  justify-content: center;
+}

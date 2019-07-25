@@ -1,0 +1,40 @@
+/* miniprogram/pages/lego/member_info/member_info.wxss */
+.row{
+  display: flex;
+  flex-direction: row
+}
+.divline{
+  width: 100%;
+  border: dashed 0.1rpx #f2f2f2
+}
+
+.info_title{
+  width: 22%;
+  text-align: right;
+  justify-content: right;
+  font-size: 30rpx;
+  font-weight: 150;
+  
+
+}
+.info_content{
+  width:28%; 
+  text-align: left;
+  font-size: 30rpx;
+  font-weight: 150
+}
+
+.button {
+  border: 0.1rpx solid grey;
+  background-color:white;
+  font-size: 30rpx;
+  font-weight: 100;
+  margin-top: 10rpx;
+  margin-left: 3%;
+  margin-right: 2%;
+  height: 45rpx;
+  text-align: center;
+  align-items:left;
+  line-height: 45rpx;
+  width: 20%;
+}

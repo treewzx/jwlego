@@ -1,0 +1,84 @@
+<!--miniprogram/pages/lego/member_info/member_info.wxml-->
+<view class='row_center' style='margin-bottom :15rpx'>共查询到{{memberNum}}个会员
+</view>
+<view class="member_info_container" wx:if="{{memberNum != '0'}}">
+  <view class='row'>
+    <text class='info_title'>卡号：</text>
+    <text class='info_content'>{{phoneNum}}</text>
+    <text class='info_title'>姓名：</text>
+    <text class='info_content'>{{name}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='info_title'>联系电话：</text>
+    <text class='info_content'>{{secondPhone}}</text>
+    <text class='info_title'>生日：</text>
+    <text class='info_content'>{{birthday}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='info_title'>套餐：</text>
+    <text class='info_content'>{{mealSet}}</text>
+    <text class='info_title'>总时长：</text>
+    <text class='info_content'>{{sumLength}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='info_title'>套餐时长：</text>
+    <text class='info_content'>{{timeLength}}</text>
+    <text class='info_title'>赠送时长：</text>
+    <text class='info_content'>{{freeLength}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='info_title'>开卡日期：</text>
+    <text class='info_content'>{{startTime}}</text>
+    <text class='info_title'>过期日期：</text>
+    <text class='info_content'>{{endTime}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='info_title'>开卡门店：</text>
+    <text class='info_content'>{{deptName}}</text>
+    <text class='info_title'>开卡人：</text>
+    <text class='info_content'>{{createName}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='info_title'>已用时长：</text>
+    <text class='info_content'>{{xiaofeiTime}}</text>
+    <text class='info_title'>剩余时长：</text>
+    <text class='info_content'>{{surplusLength}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='info_title'>赠送券：</text>
+    <text class='info_content'>{{extension1}}</text>
+    <text class='info_title'>券有效期：</text>
+    <text class='info_content'>{{extension2}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='info_title'>上次消费：</text>
+    <text class='info_content'>{{lastTime}}</text>
+    <text class='info_title'>当前积分：</text>
+    <text class='info_content'>{{integral}}</text>
+  </view>
+  <view class='divline' />
+
+  <view class='row'>
+    <text class='button' bindtap='modifySecondPhone'>修改信息</text>
+    <text class='button' bindtap='upgradeMeatSel'>升级套餐</text>
+    <text class='button' bindtap='reNewal'>续费</text>
+    <text class='button' bindtap='history'>历史记录</text>
+  </view>
+  <view class='divline' />
+</view>

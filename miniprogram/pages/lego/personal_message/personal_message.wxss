@@ -1,0 +1,46 @@
+/* miniprogram/pages/lego/personal_message/personal_message.wxss */
+.container{
+  margin-top: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+}
+.submit-btn{
+  background: #26cd58;
+  margin-top: 150rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 500rpx
+}
+.btn{
+  background: #26cd58;
+  margin-top: 50rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 500rpx
+}
+
+
+.content {
+  width: 55%;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 10rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #26cd58;
+  text-align: left;
+  justify-items: center;
+  justify-content: center;
+}
+
+.content-text {
+  width: 55%;
+  height: 30rpx;
+  line-height: 30rpx;
+  padding-left: 10rpx;
+  text-align: left;
+  justify-items: center;
+  justify-content: center;
+}

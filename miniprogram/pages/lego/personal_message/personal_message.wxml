@@ -1,0 +1,14 @@
+<!--miniprogram/pages/lego/personal_message/personal_message.wxml-->
+ <view class='container'>
+    <text class='title'>账号：</text>
+    <text class='content-text'>{{account}}</text>
+  </view>
+   <view class='container'>
+    <text class='title'>姓名：</text>
+    <text class='content-text'>{{name}}</text>
+  </view>
+
+<button class='btn'wx:if="{{isAdmin}}" bindtap='addManager'>新增管理员</button>
+<button class='btn' wx:if="{{isAdmin}}" bindtap='delManager'>删除管理员</button>
+<button class='btn' wx:if="{{isAdmin}}" bindtap='skimManager'>查看管理员</button>
+   <button class='submit-btn' bindtap='logout'>退出登录</button>

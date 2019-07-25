@@ -1,0 +1,49 @@
+/* miniprogram/pages/lego/end_play/end_play.wxss */
+
+.title_prj {
+  color: #26cd58;
+  font-size: 40rpx;
+  margin-top: 40rpx;
+  margin-left: 40rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 30rpx;
+  margin-left: 80rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputTitle {
+  font-size: 30rpx;
+  height: 60rpx;
+  justify-items: center;
+  margin-left: 80rpx;
+  margin-top: 20rpx;
+}
+
+.container {
+  margin-top: 10rpx;
+  width: 500rpx;
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 10rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #26cd58;
+}
+.text {
+  font-size: 30rpx;
+  margin-left: 80rpx;
+  display: flex;
+  
+}

@@ -1,0 +1,18 @@
+/* miniprogram/pages/lego/login/login.wxss */
+.submit-btn{
+  background: #26cd58;
+  margin-top: 120rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 500rpx
+}
+
+
+.input{
+  margin-top: 80rpx;
+  padding-left: 10rpx;
+ border-radius: 10rpx;
+ border: 1rpx solid #26cd58;
+  width: 500rpx;
+  height: 80rpx
+}

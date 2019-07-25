@@ -1,0 +1,6 @@
+<!--miniprogram/pages/lego/login/login.wxml-->
+<view class='column_center'>
+  <input class='input' placeholder='请输入手机号' type='string'bindinput="usernameInput"></input>
+  <input class='input' placeholder='请输入密码' type='string' bindinput="passwordInput"></input>
+  <button class='submit-btn' bindtap='login'>登录</button>
+</view>

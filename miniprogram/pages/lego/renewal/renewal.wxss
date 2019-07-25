@@ -1,0 +1,37 @@
+/* miniprogram/pages/lego/renewal/renewal.wxss */
+.container{
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.title {
+  width: 25%;
+  text-align: right;
+  justify-items: center;
+}
+
+.content {
+  width: 55%;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 10rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #26cd58;
+  text-align: left;
+  justify-items: center;
+  justify-content: center;
+}
+
+.content-text {
+  width: 55%;
+  height: 30rpx;
+  line-height: 30rpx;
+  padding-left: 10rpx;
+  text-align: left;
+  justify-items: center;
+  justify-content: center;
+}

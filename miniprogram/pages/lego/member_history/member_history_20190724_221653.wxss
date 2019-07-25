@@ -1,0 +1,23 @@
+/* miniprogram/pages/lego/member_history/member_history.wxss */
+
+.row_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  font-size: 48rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  flex-direction: row;
+}
+
+.content {
+  margin-top: 25rpx;
+  font-size: 30rpx;
+}
+
+.divline {
+  width: 100%;
+  margin-top: 25rpx;
+  border: solid 0.1rpx gray;
+}

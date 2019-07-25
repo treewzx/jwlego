@@ -1,0 +1,42 @@
+<!--miniprogram/pages/lego/start_play/start_play.wxml-->
+<import src="../../../components/showToast/showToast.wxml" />
+<template is="showToast" data="{{showToast: showToast}}" />
+<view class='column_center'>
+  <text>桌{{deskNum}}</text>
+
+  <view class='container'>
+    <radio-group class="radio-group" bindchange="memberChange">
+      <label class="radio" wx:for-items="{{menbers}}">
+        <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+      </label>
+    </radio-group>
+  </view>
+
+  <view class='container' wx:if="{{isMember}}">
+    <input class='input' placeholder="请输入手机号" bindinput="userInput"></input>
+    <button class='button' id="memberSearch" bindtap='memberSearch'>查询</button>
+  </view>
+  <text class='memberInfo' style='color:{{textColor}}' wx:if="{{isMember}}">{{memberInfo}}</text>
+
+
+  <view class='container' wx:if="{{!isMember}}">
+    <input class='input' placeholder="请输入手机号" bindinput="noMembePhoneInput" value='{{noMemberPhone}}'></input>
+    <button class='button'>    </button>
+  </view>
+  <view class='container' wx:if="{{!isMember}}">
+    <input class='input' placeholder="请输入姓名" bindinput="noMembeNameInput" value='{{noMembername}}'></input>
+    <button class='button'>    </button>
+  </view>
+
+
+  <view class='container'>
+    <input class='input' placeholder="请输入玩具编码" bindinput="toyNumInput"></input>
+    <button class='button' id="toySearch" bindtap='toySearch'>校验</button>
+  </view>
+
+  <text class='memberInfo' style='color:{{toyColor}}'>{{toyInfo}}</text>
+
+  <button class='submit-btn' style='margin-top:50rpx' bindtap="startPlay">开始游戏</button>
+
+
+</view>

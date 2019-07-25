@@ -1,0 +1,20 @@
+/* miniprogram/pages/lego/modify_secphone/modify_secphone.wxss */
+
+
+.submit-btn{
+  background: #26cd58;
+  margin-top: 180rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  width: 500rpx
+}
+
+
+.input{
+  margin-top: 100rpx;
+  padding-left: 10rpx;
+ border-radius: 10rpx;
+ border: 1rpx solid #26cd58;
+  width: 500rpx;
+  height: 90rpx
+}

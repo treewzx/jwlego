@@ -1,0 +1,12 @@
+<!--miniprogram/pages/lego/member_history/member_history.wxml-->
+<text class='row_center' >{{username}}的消费记录</text>
+<block wx:key="{{index}}" wx:for="{{order}}">
+  <text class='content'>{{item}}</text>
+   <view class='divline' />
+</block>
+
+<text class='row_center'>{{username}}的续费记录</text>
+<block wx:key="{{index}}" wx:for="{{xufei}}">
+  <text class="content">{{item}}</text>
+   <view class='divline' />
+</block>

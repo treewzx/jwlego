@@ -1,0 +1,86 @@
+<!--miniprogram/pages/lego/admin_manage/admin_manage.wxml-->
+<view class='column-center' wx:if="{{type==1}}">
+  <view class='addcontainer'>
+    <text class='title'>用户名：</text>
+    <input class='inpuContent' placeholder='用户名' bindinput="accountInput" value='{{account}}'></input>
+  </view>
+  <view class='addcontainer'>
+    <text class='title'>密码：</text>
+    <input class='inpuContent' placeholder='密码' bindinput="pwdInput" value='{{pwd}}'></input>
+  </view>
+  <view class='addcontainer'>
+    <text class='title'>姓名：</text>
+    <input class='inpuContent' placeholder='姓名' bindinput="nameInput" value='{{name}}'></input>
+  </view>
+  <view class='addcontainer'>
+    <text class='title'>联系电话：</text>
+    <input class='inpuContent' placeholder='联系电话' type='number' bindinput="phoneInput" value='{{phone}}'></input>
+  </view>
+  <button class='btn' bindtap='addMember'>添加管理员</button>
+</view>
+
+
+<view wx:if="{{type==2}}">
+  <block wx:key="{{index}}" wx:for="{{userList}}">
+    <view class='divline' />
+
+    <view bindtap="selectClick" id="{{index}}">
+      <view wx:if="{{item.selected==true}}">
+        <view style="background:#26cd58;">
+          <view class='container'>
+            <text class='title'>姓名：</text>
+            <text class='content'>{{item.username}}</text>
+          </view>
+          <view class='container'>
+            <text class='title'>用户名：</text>
+            <text class='content'>{{item.name}}</text>
+          </view>
+          <view class='container'>
+            <text class='title'>联系电话：</text>
+            <text class='content'>{{item.mobile}}</text>
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{item.selected==false}}">
+        <view style="background:white;">
+          <view class='container'>
+            <text class='title'>姓名：</text>
+            <text class='content'>{{item.username}}</text>
+          </view>
+          <view class='container'>
+            <text class='title'>用户名：</text>
+            <text class='content'>{{item.name}}</text>
+          </view>
+          <view class='container'>
+            <text class='title'>联系电话：</text>
+            <text class='content'>{{item.mobile}}</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </block>
+  <button class='btn' bindtap='delAdmin'>删除</button>
+</view>
+
+
+<view wx:if="{{type==3}}">
+  <block wx:key="{{index}}" wx:for="{{userList}}">
+    <view class='divline' />
+    <view>
+      <view class='container'>
+        <text class='title'>姓名：</text>
+        <text class='content'>{{item.username}}</text>
+      </view>
+      <view class='container'>
+        <text class='title'>用户名：</text>
+        <text class='content'>{{item.name}}</text>
+      </view>
+      <view class='container'>
+        <text class='title'>联系电话：</text>
+        <text class='content'>{{item.mobile}}</text>
+      </view>
+    </view>
+  </block>
+</view>

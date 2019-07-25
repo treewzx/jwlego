@@ -1,0 +1,17 @@
+<!--miniprogram/pages/lego/change_toy/change_toy.wxml-->
+<view class='column_center'>
+  <text>桌{{deskId}}</text>
+
+  <view class='container'>
+    <text>当前玩具：{{toyId}}</text>
+  </view>
+  <view class='container'>
+    <input class='input' placeholder="更换后的玩具编码" bindinput="toyNumInput"></input>
+    <button class='button' id="toySearch" bindtap='toySearch'>校验</button>
+  </view>
+  <text style='color:{{toyColor}}'>{{toyInfo}}</text>
+
+  <button class='submit-btn' style='margin-top:50rpx' bindtap="changeToy">更换套餐</button>
+
+
+</view>

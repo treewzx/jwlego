@@ -1,0 +1,27 @@
+/* miniprogram/pages/lego/change_toy/change_toy.wxss */
+.container {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: row;
+}
+
+.input {
+  margin-top: 20rpx;
+  padding-left: 10rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #26cd58;
+  width: 400rpx;
+  height: 80rpx;
+}
+
+.button {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  border-radius: 10rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+

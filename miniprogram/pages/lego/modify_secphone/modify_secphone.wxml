@@ -1,0 +1,6 @@
+<!--miniprogram/pages/lego/modify_secphone/modify_secphone.wxml-->
+<view class='column_center'>
+  <input class='input' placeholder='请输入第二联系电话' type='number' bindinput="phoneInput"></input>
+  <input class='input' placeholder='赠送时长' type='number' bindinput="giveInput"></input>
+  <button class='submit-btn' bindtap='changePhone'>修改</button>
+</view>

@@ -1,0 +1,46 @@
+<!--miniprogram/pages/lego/renewal/renewal.wxml-->
+  <view class='container'>
+    <text class='title'>套餐：</text>
+    <picker class='content' mode="selector" value="{{index}}" range="{{mealSet}}" bindchange="mealSetChange">
+      <text class="picker">{{mealSet[index]}} 
+        </text>
+    </picker>
+  </view>
+   <view class='container'>
+    <text class='title'>套餐时长：</text>
+    <text class='content-text' value="{{timeIndex}}" range="{{mealSetTime}}">{{mealSetTime[timeIndex]}} 分钟</text>
+  </view>
+  <view class='container'>
+    <text class='title'>赠送时长：</text>
+    <input class='content' placeholder='赠送时长(分钟)' type='number' value='{{freetime}}' bindinput="freeTimeInput"></input>
+  </view>
+  
+  <view class='container'>
+    <text class='title'>生效日期：</text>
+    <text class='content-text'>{{cardStartDate}}</text>
+  </view>
+
+  <view class='container'>
+    <text class='title'>过期日期：</text>
+    <text class='content-text'>{{cardEndDate}}</text>
+  </view>
+
+  <view class='container'>
+    <text class='title'>赠券张数：</text>
+    <input class='content' placeholder='请输入赠送券数' type='number' value='{{quan}}' bindinput="quanInput"></input>
+  </view>
+
+ <view class='container'>
+    <text class='title'>券有效期：</text>
+    <picker class='content' mode="date" value="{{date}}" start="2001-01-01" end="2026-01-01" bindchange="quanEndTimeDateChange">
+      <text class="picker">  {{quanEndTimedates}}
+        </text>
+    </picker>
+  </view>
+   <button class='submit-btn' bindtap='xufei'>续费</button>
+  <view >
+    <modal  hidden="{{modalHidden}}" confirm-text="确定"
+    cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">
+      {{dialogMsg}}
+    </modal>
+  </view>

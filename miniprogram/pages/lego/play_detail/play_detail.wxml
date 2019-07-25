@@ -1,0 +1,8 @@
+<!--miniprogram/pages/lego/play_detail/play_detail.wxml-->
+<block wx:key="{{index}}" wx:for="{{detailList}}">
+
+  <view class='divline' />
+  <view class='row_center'>
+    <text>{{item}}</text>
+  </view>
+</block>

@@ -1,0 +1,103 @@
+<!--miniprogram/pages/lego/end_play/end_play.wxml-->
+<text class='row_center'>桌{{deskId}}</text>
+<text class='title_prj'>顾客信息</text>
+<text class='title'>手机号码 : {{phone}}</text>
+<text class='title'>客户姓名 : {{consumerName}}</text>
+<text class='title'>客户类型 : {{consumerType}}</text>
+<text class='title'>开始时间 : {{startTime}}</text>
+<text class='title'>消费前剩余时长 : {{beforUsedTime}}分钟</text>
+<view class='container'>
+  <text class='inputTitle'>消费时长: </text>
+  <input class='content' placeholder='消费时长' type='number' value='{{usedTime}}' bindinput="usedTimeInput"></input>
+  <text>分钟</text>
+</view>
+<view class='container'>
+  <text class='inputTitle'>用赠送券:</text>
+  <input class='content' placeholder='赠送券' type='number' value='{{quan}}' bindinput="quanInput"></input>
+  <text space="ensp">张  </text>
+</view>
+<text class='title'>本次计费时长 : {{countUsedTime}}分钟</text>
+<text class='title'>消费后剩余时长 : {{unUsedTime}}分钟</text>
+<view class='container'>
+  <text class='inputTitle'>获得积分：</text>
+  <input class='content' placeholder='积分' type='number' value='{{jifen}}' bindinput="jifenInput"></input>
+  <text space="ensp">分  </text>
+</view>
+
+
+<text class='title_prj'>本次拼装情况</text>
+<view class='container'>
+  <text space="ensp" class='inputTitle'>观察力：  </text>
+  <view class='content'>
+    <picker bindchange="guanchaChange" value="{{guanchaindex}}" range="{{array}}">
+      <view>{{array[guanchaindex]}}</view>
+    </picker>
+  </view>
+
+  <text>分</text>
+</view>
+<view class='container'>
+  <text space="ensp" class='inputTitle'>专注力：  </text>
+   <view class='content'>
+    <picker bindchange="zhuanzhuChange" value="{{zhuanzhuindex}}" range="{{array}}">
+      <view>{{array[zhuanzhuindex]}}</view>
+    </picker>
+  </view>
+  <text>分</text>
+</view>
+<view class='container'>
+  <text class='inputTitle'>空间辨识：</text>
+   <view class='content'>
+    <picker bindchange="kongjianChange" value="{{kongjianindex}}" range="{{array}}">
+      <view>{{array[kongjianindex]}}</view>
+    </picker>
+  </view>
+  <text>分</text>
+</view>
+<view class='container'>
+  <text space="ensp" class='inputTitle'>规范性：  </text>
+  <view class='content'>
+    <picker bindchange="guifanChange" value="{{guifanindex}}" range="{{array}}">
+      <view>{{array[guifanindex]}}</view>
+    </picker>
+  </view>
+  <text>分</text>
+</view>
+<view class='container'>
+  <text space="ensp" class='inputTitle'>完整性：  </text>
+   <view class='content'>
+    <picker bindchange="wanzhengChange" value="{{wanzhengindex}}" range="{{array}}">
+      <view>{{array[wanzhengindex]}}</view>
+    </picker>
+  </view>
+  <text>分</text>
+</view>
+<view class='container'>
+  <text space="ensp" class='inputTitle'>抗挫折：  </text>
+   <view class='content'>
+    <picker bindchange="kangcuoChange" value="{{kangcuoindex}}" range="{{array}}">
+      <view>{{array[kangcuoindex]}}</view>
+    </picker>
+  </view>
+  <text>分</text>
+</view>
+<view class='container'>
+  <text class='inputTitle'>沟通能力：</text>
+  <view class='content'>
+    <picker bindchange="goutongChange" value="{{goutongindex}}" range="{{array}}">
+      <view>{{array[goutongindex]}}</view>
+    </picker>
+  </view>
+  <text>分</text>
+</view>
+
+
+<text class='title_prj'>消费信息</text>
+<block wx:key="{{index}}" wx:for="{{detailList}}">
+  <view class='divline' />
+  <view class='row_center'>
+    <text class="text">{{item}}</text>
+  </view>
+</block>
+
+<button class='submit-btn' bindtap='stopGame'>结束</button>
