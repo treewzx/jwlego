@@ -125,20 +125,18 @@ Page({
     })
   },
   onSearchToyFailed: function(res) {
+    this.setData({
+      toyInfo:"玩具套餐不存在",
+      toyColor:"red",
+      toyCanStart:false
+    })
     if (msg.match("token")) {
       wx.setStorageSync("token", "");
       wx.setStorageSync("userId", "");
       wx.redirectTo({
         url: '../login/login',
       })
-    } else {
-      this.setData({
-        toyInfo: "玩具套餐不存在",
-        toyColor: 'red',
-        toyCanStart: false,
-      })
-    }
-
+    } 
   },
 
   onChangeToySuccess: function(res) {
