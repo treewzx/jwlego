@@ -15,7 +15,7 @@ Page({
     kangcuoindex: "0",
     goutongindex: "0",
     deskId: "",
-    deskInfo: "",
+    deskName:"",
     usedTime: "0",
     quan: "0",
     jifen: "0",
@@ -77,6 +77,7 @@ Page({
   onLoad: function(options) {
     this.setData({
       deskId: options.deskId,
+      deskName:options.deskName
     })
     var params = {
       id: options.deskId

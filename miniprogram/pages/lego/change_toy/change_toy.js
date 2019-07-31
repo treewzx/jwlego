@@ -7,6 +7,7 @@ Page({
    */
 
   data: {
+    deskName:"",
     deskId: 1,
     toyId: 1,
     newToyId: "",
@@ -59,6 +60,7 @@ Page({
     this.setData({
       deskId: options.deskId,
       toyId: options.toyId,
+      deskName:options.deskName,
     })
   },
 

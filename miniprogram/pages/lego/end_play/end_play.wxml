@@ -1,5 +1,5 @@
 <!--miniprogram/pages/lego/end_play/end_play.wxml-->
-<text class='row_center'>桌{{deskId}}</text>
+<text class='row_center'>{{deskName}}</text>
 <text class='title_prj'>顾客信息</text>
 <text class='title'>手机号码 : {{phone}}</text>
 <text class='title'>客户姓名 : {{consumerName}}</text>

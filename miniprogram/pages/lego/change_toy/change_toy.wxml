@@ -1,6 +1,6 @@
 <!--miniprogram/pages/lego/change_toy/change_toy.wxml-->
 <view class='column_center'>
-  <text>桌{{deskId}}</text>
+  <text>{{deskName}}</text>
 
   <view class='container'>
     <text>当前玩具：{{toyId}}</text>

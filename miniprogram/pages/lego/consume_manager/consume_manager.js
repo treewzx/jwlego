@@ -47,17 +47,31 @@ Page({
   //结束游戏
   stopPlay: function(e) {
     var deskId = parseInt(e.currentTarget.id);
-    var deskInfo = JSON.stringify(this.data.deskList[deskId - 1]);
+    for (var i = 0; i < this.data.deskList.length; i++) {
+      if (deskId === this.data.deskList[i].id) {
+        var deskName = this.data.deskList[i].deskName;
+        //var deskInfo = JSON.stringify(this.data.deskList[i]);
+        break;
+      }
+    }
+   
     wx.navigateTo({
-      url: '../end_play/end_play?deskId=' + deskId + "&deskInfo=" + deskInfo,
+      url: '../end_play/end_play?deskId=' + deskId + "&deskName=" + deskName,
     })
   },
   //更换玩具
   changeToy: function(e) {
     var deskId = parseInt(e.currentTarget.id);
-    var toyId = this.data.deskList[deskId - 1].number;
+    for (var i = 0; i < this.data.deskList.length;i++){
+      if (deskId ===this.data.deskList[i].id){
+        var toyId = this.data.deskList[i].number;
+        var deskName = this.data.deskList[i].deskName;
+        break;
+      }
+    }
+   
     wx.navigateTo({
-      url: '../change_toy/change_toy?deskId=' + deskId + "&toyId=" + toyId,
+      url: '../change_toy/change_toy?deskId=' + deskId + "&toyId=" + toyId+"&deskName="+deskName,
     })
   },
   detailPlay: function(e) {
