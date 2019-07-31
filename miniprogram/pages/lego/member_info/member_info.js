@@ -14,7 +14,7 @@ Page({
 
   modifySecondPhone: function() {
     wx.navigateTo({
-      url: '../modify_secphone/modify_secphone?userId=' + this.data.userId,
+      url: '../modify_secphone/modify_secphone?userId=' + this.data.userId + "&secondPhone=" + this.data.secondPhone,
     })
   },
 

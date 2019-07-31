@@ -210,7 +210,7 @@ Page({
     var currentTime = Date.parse(new Date());
     var endTime = res.end_time.replace(/-/g, '/');
     var endTime = Date.parse(new Date(endTime));
-    if (res.surplus_length > 0 && currentTime < endTime) {
+    if (res.surplus_length > 0) {
       this.setData({
         textColor: '#26cd58',
         userCanStart: true

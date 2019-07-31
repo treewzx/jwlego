@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phone: " ",
+    secondPhone:"",
+    phone: "",
     userId: "",
     giveTime: "0"
   },
@@ -22,6 +23,11 @@ Page({
     })
   },
   changePhone: function() {
+    if(this.data.phone==""){
+      this.setData({
+        phone:this.data.secondPhone
+      })
+    }
     var params = {
       mobile: this.data.phone,
       id: this.data.userId,
@@ -63,7 +69,8 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      userId: options.userId
+      userId: options.userId,
+      secondPhone:options.secondPhone
     })
   },
 
