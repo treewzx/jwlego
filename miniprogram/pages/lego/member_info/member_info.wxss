@@ -13,7 +13,6 @@
   text-align: right;
   justify-content: right;
   font-size: 30rpx;
-  font-weight: 150;
   
 
 }
@@ -21,14 +20,12 @@
   width:28%; 
   text-align: left;
   font-size: 30rpx;
-  font-weight: 150
 }
 
 .button {
   border: 0.1rpx solid grey;
   background-color:white;
   font-size: 30rpx;
-  font-weight: 100;
   margin-top: 10rpx;
   margin-left: 3%;
   margin-right: 2%;
