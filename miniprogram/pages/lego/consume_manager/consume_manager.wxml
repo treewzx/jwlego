@@ -2,19 +2,21 @@
 <view class='.tip'>
   <text style='color:#26cd58'>绿色：使用中，</text>
   <text style='color:orange'>黄色：暂停，</text>
-  <text style='color:#f05654'>红色：剩余时间不足200分钟，</text>白色：未使用
+  <text style='color:#f05654'>红色：剩余时间不足400分钟，</text>白色：未使用
 </view>
 <block wx:key="{{index}}" wx:for="{{deskList}}">
 
   <view wx:if="{{item.status == '0'}}">
     <view class='divline' />
 
-    <view wx:if="{{item.surplusLength>600}}">
+    <view wx:if="{{item.surplusLength>=400}}">
       <view class='row_center' style="background:#8cdf4f;">
         <text class='deskNum'>{{item.deskName}}</text>
         <view class='deskInfo_cloumn_flex'>
-          <text class='customerInfo'>开始时间：{{item.startTime}}</text>
-          <text class='customerInfo'>玩具编号：{{item.number}}</text>
+           <view class='row_center'>
+             <text class='deskInfo'>玩具编号：{{item.number}}</text>
+           <text class='deskInfo'>开始时间：{{item.startTime}}</text>
+           </view>
           <text class='customerInfo'>客户信息：{{item.huiyuan}}</text>
           <view class='row_center'>
             <text class='deskInfo'>消费时长：{{item.xiaofeiTime}}分钟</text>
@@ -30,12 +32,14 @@
       </view>
     </view>
 
-    <view wx:if="{{item.surplusLength<600}}">
+    <view wx:if="{{item.surplusLength<400}}">
       <view class='row_center' style="background:#f66260;">
         <text class='deskNum'>{{item.deskName}}</text>
         <view class='deskInfo_cloumn_flex'>
-          <text class='customerInfo'>开始时间：{{item.startTime}}</text>
-          <text class='customerInfo'>玩具编号：{{item.number}}</text>
+         <view class='row_center'>
+             <text class='deskInfo'>玩具编号：{{item.number}}</text>
+           <text class='deskInfo'>开始时间：{{item.startTime}}</text>
+           </view>
           <text class='customerInfo'>客户信息：{{item.huiyuan}}</text>
           <view class='row_center'>
             <text class='deskInfo'>消费时长：{{item.xiaofeiTime}}分钟</text>
@@ -57,8 +61,10 @@
     <view class='row_center' style="background:orange;">
       <text class='deskNum'>{{item.deskName}}</text>
       <view class='deskInfo_cloumn_flex'>
-        <text class='customerInfo'>开始时间：{{item.startTime}}</text>
-        <text class='customerInfo'>玩具编号：{{item.number}}</text>
+        <view class='row_center'>
+             <text class='deskInfo'>玩具编号：{{item.number}}</text>
+           <text class='deskInfo'>开始时间：{{item.startTime}}</text>
+           </view>
         <text class='customerInfo'>客户信息：{{item.huiyuan}}</text>
         <view class='row_center'>
           <text class='deskInfo'>消费时长：{{item.xiaofeiTime}}分钟</text>
@@ -79,12 +85,14 @@
     <view class='row_center' style="background:white;">
       <text class='deskNum'>{{item.deskName}}</text>
       <view class='deskInfo_cloumn_flex'>
-        <text class='customerInfo'>开始时间：{{item.startTime}}</text>
-        <text class='customerInfo'>玩具编号：{{item.number}}</text>
-        <text class='customerInfo'>客户信息：{{item.huiyuan}}</text>
+       <view class='row_center'>
+             <text class='deskInfo'>玩具编号：--</text>
+           <text class='deskInfo'>开始时间：--</text>
+           </view>
+        <text class='customerInfo'>客户信息：--</text>
         <view class='row_center'>
-          <text class='deskInfo'>消费时长：{{item.xiaofeiTime}}分钟</text>
-          <text class='deskInfo'>剩余时长：{{item.surplusLength}}分钟</text>
+          <text class='deskInfo'>消费时长：--分钟</text>
+          <text class='deskInfo'>剩余时长：--分钟</text>
         </view>
         <view class='row_center'>
           <text class='button' catchtap='startPlay' id='{{item.id}}'>开始</text>

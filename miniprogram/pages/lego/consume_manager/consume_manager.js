@@ -144,8 +144,12 @@ Page({
   onStart: function() { //onStart回调
   },
   onSuccess: function(res) { //onSuccess回调
+    let dataList = res.deskList; //获取到的数据
+    dataList.forEach((item) => {
+      item.startTime = item.startTime.substring(11, item.startTime.length); //要截取字段的字符串
+    })
     this.setData({
-      deskList: res.deskList,
+      deskList: dataList,
     })
   },
 
