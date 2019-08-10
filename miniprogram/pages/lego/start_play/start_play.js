@@ -187,7 +187,7 @@ Page({
   onLoad: function(options) {
     this.setData({
       deskId: options.deskId,
-      deskNum: options.deskId,
+      deskNum: options.deskName,
     })
   },
 

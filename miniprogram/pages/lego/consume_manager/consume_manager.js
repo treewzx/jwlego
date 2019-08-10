@@ -2,6 +2,8 @@
 var netUtil = require("../../../utils/network.js");
 var dateUtil = require("../../../utils/util.js");
 var timer;
+var deskName;
+var deskId;
 Page({
 
   /**
@@ -20,15 +22,21 @@ Page({
   },
 
   startPlay: function(e) {
-    var deskId = parseInt(e.currentTarget.id);
+   deskId = parseInt(e.currentTarget.id);
+    for (var i = 0; i < this.data.deskList.length; i++) {
+      if (deskId === this.data.deskList[i].id) {
+        deskName = this.data.deskList[i].deskName;
+        break;
+      }
+    }
     wx.navigateTo({
-      url: '../start_play/start_play?deskId=' + deskId,
+      url: '../start_play/start_play?deskId=' + deskId + "&deskName=" + deskName,
     })
   },
 
   //暂停游戏
   pausePlay: function(e) {
-    var deskId = parseInt(e.currentTarget.id);
+   deskId = parseInt(e.currentTarget.id);
     var params = {
       id: deskId
     }
@@ -37,7 +45,7 @@ Page({
   },
   //继续游戏
   continuePlay: function(e) {
-    var deskId = parseInt(e.currentTarget.id);
+   deskId = parseInt(e.currentTarget.id);
     var params = {
       id: deskId
     }
@@ -46,11 +54,10 @@ Page({
 
   //结束游戏
   stopPlay: function(e) {
-    var deskId = parseInt(e.currentTarget.id);
+   deskId = parseInt(e.currentTarget.id);
     for (var i = 0; i < this.data.deskList.length; i++) {
       if (deskId === this.data.deskList[i].id) {
-        var deskName = this.data.deskList[i].deskName;
-        //var deskInfo = JSON.stringify(this.data.deskList[i]);
+         deskName = this.data.deskList[i].deskName;
         break;
       }
     }
@@ -61,11 +68,11 @@ Page({
   },
   //更换玩具
   changeToy: function(e) {
-    var deskId = parseInt(e.currentTarget.id);
+   deskId = parseInt(e.currentTarget.id);
     for (var i = 0; i < this.data.deskList.length;i++){
       if (deskId ===this.data.deskList[i].id){
         var toyId = this.data.deskList[i].number;
-        var deskName = this.data.deskList[i].deskName;
+         deskName = this.data.deskList[i].deskName;
         break;
       }
     }
@@ -75,7 +82,7 @@ Page({
     })
   },
   detailPlay: function(e) {
-    var deskId = parseInt(e.currentTarget.id);
+   deskId = parseInt(e.currentTarget.id);
     wx.navigateTo({
       url: '../play_detail/play_detail?deskId=' + deskId,
     })

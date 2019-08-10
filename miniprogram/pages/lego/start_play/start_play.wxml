@@ -2,7 +2,7 @@
 <import src="../../../components/showToast/showToast.wxml" />
 <template is="showToast" data="{{showToast: showToast}}" />
 <view class='column_center'>
-  <text>桌{{deskNum}}</text>
+  <text>{{deskNum}}</text>
 
   <view class='container'>
     <radio-group bindchange="memberChange">
@@ -19,10 +19,10 @@
    <radio-group wx:if="{{isMember}}" bindchange="radiochange">
     <view wx:for="{{memberInfos}}">
      <view wx:if="{{item.surplus_length<=0}}">
-      <radio class="radio"  value='{{item.id}}'style='color:red , font-size: 35rpx'><text>姓名：{{item.name}}，套餐类型：{{item.set_meal}}元,\n手机号码：{{item.phone}}，\n剩余时长：{{item.surplus_length}}分钟</text></radio>
+      <radio class="radio" checked="{{item.checked}}" value='{{item.id}}'style='color:red , font-size: 35rpx'><text>姓名：{{item.name}}，套餐类型：{{item.set_meal}}元,\n手机号码：{{item.phone}}，\n剩余时长：{{item.surplus_length}}分钟</text></radio>
       </view>
        <view wx:if="{{item.surplus_length>0}}">
-      <radio class="radio"  value='{{item.id}}'style='color:black ; font-size: 35rpx'><text>姓名：{{item.name}}，套餐类型：{{item.set_meal}}元,\n手机号码：{{item.phone}}，\n剩余时长：{{item.surplus_length}}分钟</text></radio>
+      <radio class="radio" checked="{{item.checked}}" value='{{item.id}}'style='color:black ; font-size: 35rpx'><text>姓名：{{item.name}}，套餐类型：{{item.set_meal}}元,\n手机号码：{{item.phone}}，\n剩余时长：{{item.surplus_length}}分钟</text></radio>
       </view>
     </view>
   </radio-group>
