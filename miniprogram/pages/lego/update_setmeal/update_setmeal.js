@@ -180,7 +180,7 @@ Page({
       modalHidden: true,
     })
     wx.navigateTo({
-      url: '../member_info/member_info?phone=' + this.data.phone,
+      url: '../member_info/member_info?phone=' + this.data.phone+"&name="+"",
     })
   },
   onUpgradeFailed: function (msg) {

@@ -1,6 +1,7 @@
 // miniprogram/pages/lego/member_info/member_info.js
 var netUtil = require("../../../utils/network.js");
 var searchPhone;
+var name;
 Page({
 
   /**
@@ -8,28 +9,71 @@ Page({
    */
   data: {
     memberNum: 0,
-    userId: ""
+    userId: "",
+    userInfos: [],
+    secondPhone: "",
+    name:"",
+    phoneNum:""
+
   },
 
 
-  modifySecondPhone: function() {
+  modifySecondPhone: function(e) {
+    this.setData({
+      userId: e.currentTarget.id
+    })
+    for (var i = 0; i < this.data.userInfos.length; i++) {
+      if (this.data.userInfos[i].userId == this.data.userId) {
+        this.setData({
+          secondPhone: this.data.userInfos[i].mobile
+        })
+        break;
+      }
+    }
     wx.navigateTo({
       url: '../modify_secphone/modify_secphone?userId=' + this.data.userId + "&secondPhone=" + this.data.secondPhone,
     })
   },
 
-  upgradeMeatSel: function() {
+  upgradeMeatSel: function(e) {
+    this.setData({
+      userId: e.currentTarget.id
+    })
+    
     wx.navigateTo({
       url: '../update_setmeal/update_setmeal?userId=' + this.data.userId,
     })
   },
   //续费phoneNum
-  reNewal: function() {
+  reNewal: function(e) {
+    this.setData({
+      userId: e.currentTarget.id
+    })
+    for (var i = 0; i < this.data.userInfos.length; i++) {
+      if (this.data.userInfos[i].userId == this.data.userId) {
+        this.setData({
+          name: this.data.userInfos[i].name,
+          phoneNum: this.data.userInfos[i].username,
+        })
+        break;
+      }
+    }
     wx.navigateTo({
       url: '../renewal/renewal?userId=' + this.data.userId + "&name=" + this.data.name + "&phoneNum=" + this.data.phoneNum,
     })
   },
-  history: function() {
+  history: function(e) {
+    this.setData({
+      userId: e.currentTarget.id
+    })
+    for (var i = 0; i < this.data.userInfos.length; i++) {
+      if (this.data.userInfos[i].userId == this.data.userId) {
+        this.setData({
+          name: this.data.userInfos[i].name,
+        })
+        break;
+      }
+    }
     wx.navigateTo({
       url: '../member_history/member_history?userId=' + this.data.userId + "&name=" + this.data.name,
     })
@@ -40,8 +84,7 @@ Page({
    */
   onLoad: function(options) {
     searchPhone = options.phone
-
-
+    name = options.name
   },
 
 
@@ -53,8 +96,9 @@ Page({
   onSuccess: function(res) { //onSuccess回调
     wx.hideLoading();
     this.setData({
-      memberNum: 1,
-      phoneNum: res.user.username,
+      userInfos: res.user,
+      memberNum: res.user.length,
+      /*phoneNum: res.user.username,
       name: res.user.name,
       secondPhone: res.user.mobile,
       birthday: res.user.birthday,
@@ -72,7 +116,7 @@ Page({
       integral: res.user.integral,
       extension1: res.user.extension1,
       extension2: res.user.extension2,
-      userId: res.user.userId
+      userId: res.user.userId*/
 
     })
   },
@@ -107,6 +151,7 @@ Page({
    */
   onShow: function() {
     var params = {
+      name: name,
       phone: searchPhone,
     }
     netUtil.postRequest("user/queryUsersByphone", params, this.onStart, this.onSuccess, this.onFailed);

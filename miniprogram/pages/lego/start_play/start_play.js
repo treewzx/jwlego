@@ -14,6 +14,7 @@ Page({
     toyId: "",
     userInfo: "",
     memberInfo: "",
+    memberInfos:[],
     textColor: 'red',
     userCanStart: false,
     toyCanStart: false,
@@ -35,6 +36,26 @@ Page({
     this.setData({
       isMember: (e.detail.value === "member" ? true : false)
     })
+  },
+
+  radiochange: function (e) {
+    this.setData({
+      userId: e.detail.value
+    })
+   for(var i = 0;i<this.data.memberInfos.length;i++){
+     if (this.data.memberInfos[i].id == this.data.userId){
+       if (this.data.memberInfos[i].surplus_length>0){
+         this.setData({
+           userCanStart:true
+         })
+       }else{
+         this.setData({
+           userCanStart: false
+         })
+       }
+       break;
+     }
+   }
   },
   userInput: function(e) {
     this.setData({
@@ -67,13 +88,25 @@ Page({
         title: '请输入正确的用户',
         duration: 2000
       })
-    } else {
+      return;
+    } 
+   
+    var phonetel = /^(((1[0-9]{2}))+\d{8})$/;
+    
+    if (phonetel.test(this.data.userInfo)){
       var params = {
-        phone: this.data.userInfo
+        phone: this.data.userInfo,
+        name: ""
       }
+    }else{
+      var params = {
+        phone: "",
+        name: this.data.userInfo
+      }
+    }
       netUtil.postRequest("xiaofei/queryByPhone", params, this.onStart, this.onSearchPhoneSuccess, this.onFailed);
 
-    }
+    
   },
   toySearch: function(e) {
     this.setData({
@@ -96,9 +129,16 @@ Page({
   startPlay: function() {
     if (this.data.isMember) {
       //会员
+      if (this.data.userId == "") {
+        Toast.showToast({
+          title: '请先查询会员并选择用户',
+          duration: 2000
+        })
+        return;
+      }
       if (!this.data.userCanStart) {
         Toast.showToast({
-          title: '请先查询会员，并确保会员可用',
+          title: '请确保会员可用',
           duration: 2000
         })
         return;
@@ -204,23 +244,9 @@ Page({
   },
   onSearchPhoneSuccess: function(res) { //onSuccess回调
     this.setData({
-      memberInfo: "会员:" + res.phone + ";\n  姓名:" + res.name + ";\n  剩余时长:" + res.surplus_length + "分钟; \n 有效期至:" + res.end_time,
-      userId: res.id
+      memberInfos:res.users,
     })
-    var currentTime = Date.parse(new Date());
-    var endTime = res.end_time.replace(/-/g, '/');
-    var endTime = Date.parse(new Date(endTime));
-    if (res.surplus_length > 0) {
-      this.setData({
-        textColor: '#26cd58',
-        userCanStart: true
-      })
-    } else {
-      this.setData({
-        textColor: 'red',
-        userCanStart: false
-      })
-    }
+
 
   },
 

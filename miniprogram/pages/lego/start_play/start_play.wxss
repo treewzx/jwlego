@@ -25,7 +25,10 @@
   height: 90rpx;
   line-height: 90rpx;
 }
-
+.radio{
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
 .memberInfo{
   margin-top: 10rpx;
   text-align: left;

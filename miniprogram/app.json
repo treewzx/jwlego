@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/lego/login/login",
-    "pages/lego/member_manager/member_manager",
     "pages/lego/consume_manager/consume_manager",
+    "pages/lego/member_manager/member_manager",
     "pages/lego/member_add/member_add",
     "pages/lego/personal_message/personal_message",
     "pages/lego/start_play/start_play",

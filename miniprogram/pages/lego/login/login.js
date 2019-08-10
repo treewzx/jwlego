@@ -7,7 +7,7 @@ Page({
    */
   data: {
     username: '',
-    password: ''
+    password: '',
   },
 
   // 获取输入账号
@@ -61,7 +61,7 @@ Page({
     wx.setStorageSync("isAdmin", data.isAdmin);
     //进入主页面
     wx.switchTab({
-      url: '../member_add/member_add',
+      url: '../consume_manager/consume_manager',
     })
   },
   onFailed: function(msg) { //onFailed回调

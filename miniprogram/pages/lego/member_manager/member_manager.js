@@ -7,22 +7,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-    phone: "",
+    inputValue: "",
     phoneInputHint: "请输入会员手机号码",
     nameInputHint: "请输入会员姓名",
     setInter: '',
-    or: '或者'
+    or: '或者',
+    phone: "",
+    name: ""
 
   },
   // 获取输入手机号
   phoneInput: function(e) {
+    //判断输入的是手机号码还是姓名
     this.setData({
-      phone: e.detail.value
+      inputValue: e.detail.value
     })
+    var phonetel = /^(((1[0-9]{2}))+\d{8})$/;
+
+    if (phonetel.test(this.data.inputValue)) {
+      this.setData({
+        phone: this.data.inputValue,
+        name: ""
+      })
+    }else{
+      this.setData({
+        phone: "",
+        name: this.data.inputValue
+      })
+    }
   },
   getConsumerInfo: function() {
+    if(this.data.inputValue.length==0){
+      wx.showToast({
+        title: '输入不能为空',
+        duration: 2000
+      })
+    }
     wx.navigateTo({
-      url: '../member_info/member_info?phone=' + this.data.phone,
+      url: '../member_info/member_info?phone=' + this.data.phone + "&name=" + this.data.name,
     })
   },
 
@@ -30,7 +52,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-  
+
   },
 
   /**
@@ -45,7 +67,7 @@ Page({
    */
   onShow: function() {
     this.setData({
-      phone: ""
+      inputValue: ""
     })
   },
 

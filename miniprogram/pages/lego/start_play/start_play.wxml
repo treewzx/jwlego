@@ -5,7 +5,7 @@
   <text>桌{{deskNum}}</text>
 
   <view class='container'>
-    <radio-group class="radio-group" bindchange="memberChange">
+    <radio-group bindchange="memberChange">
       <label class="radio" wx:for-items="{{menbers}}">
         <radio value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
       </label>
@@ -13,10 +13,19 @@
   </view>
 
   <view class='container' wx:if="{{isMember}}">
-    <input class='input' placeholder="请输入手机号" bindinput="userInput"></input>
+    <input class='input' placeholder="请输入手机号或姓名" bindinput="userInput"></input>
     <button class='button' id="memberSearch" bindtap='memberSearch'>查询</button>
   </view>
-  <text class='memberInfo' style='color:{{textColor}}' wx:if="{{isMember}}">{{memberInfo}}</text>
+   <radio-group wx:if="{{isMember}}" bindchange="radiochange">
+    <view wx:for="{{memberInfos}}">
+     <view wx:if="{{item.surplus_length<=0}}">
+      <radio class="radio"  value='{{item.id}}'style='color:red , font-size: 35rpx'><text>姓名：{{item.name}}，套餐类型：{{item.set_meal}}元,\n手机号码：{{item.phone}}，\n剩余时长：{{item.surplus_length}}分钟</text></radio>
+      </view>
+       <view wx:if="{{item.surplus_length>0}}">
+      <radio class="radio"  value='{{item.id}}'style='color:black ; font-size: 35rpx'><text>姓名：{{item.name}}，套餐类型：{{item.set_meal}}元,\n手机号码：{{item.phone}}，\n剩余时长：{{item.surplus_length}}分钟</text></radio>
+      </view>
+    </view>
+  </radio-group>
 
 
   <view class='container' wx:if="{{!isMember}}">

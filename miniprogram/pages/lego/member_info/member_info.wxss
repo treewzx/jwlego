@@ -7,13 +7,20 @@
   width: 100%;
   border: dashed 0.1rpx #f2f2f2
 }
-
+.member_info_container{
+  margin-top: 20rpx;
+  margin-bottom: 20rpx
+}
+.group_divline{
+  margin-top: 15rpx;
+  width: 100%;
+  border:solid 0.5rpx  #345678
+}
 .info_title{
   width: 22%;
   text-align: right;
   justify-content: right;
   font-size: 30rpx;
-  
 
 }
 .info_content{
