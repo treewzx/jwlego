@@ -1,5 +1,5 @@
 <!--miniprogram/pages/lego/member_manager/member_manager.wxml-->
 <view class='column_center'>
-  <input class='input' placeholder='请输入手机号码或姓名' type='number' bindinput="phoneInput" value='{{inputValue}}'></input>
+  <input class='input' placeholder='请输入手机号码或姓名'  bindinput="phoneInput" value='{{inputValue}}'></input>
   <button class='submit-btn' bindtap='getConsumerInfo'>查询</button>
 </view>
