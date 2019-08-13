@@ -9,25 +9,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    modalHidden: true,//是否隐藏对话框
-    dialogMsg:"",
+    modalHidden: true, //是否隐藏对话框
+    dialogMsg: "",
     phone: "",
     name: "",
     sex: "男",
-    jifen:0,
-    quan:0,
-    freetime:0,
-    secondPhone:"",
+    jifen: 0,
+    quan: 0,
+    freetime: 0,
+    secondPhone: "",
     dates: util.formatTime(new Date()),
-    mealSetId:"1",
+    mealSetId: "1",
     mealSet: [],
     mealSetTime: [],
-    mealSetIds:[],
-    mealSetEndTime:[],
+    mealSetIds: [],
+    mealSetEndTime: [],
     sexs: [{
         name: '男',
         value: '男',
-        checked: 'true'
       },
       {
         name: '女',
@@ -63,7 +62,7 @@ Page({
     })
   },
   //获取第二联系电话
-  secondPhoneInput:function(e) {
+  secondPhoneInput: function(e) {
     this.setData({
       secondPhone: e.detail.value
     })
@@ -72,39 +71,39 @@ Page({
   //套餐更改事件(获取入参：套餐Id)
   mealSetChange: function(e) {
     indexNum = e.detail.value;
-      this.setData({
-        index: e.detail.value,
-        timeIndex: e.detail.value,
-        cardEndDate: this.data.mealSetEndTime[indexNum] ,
-        mealSetId: this.data.mealSetIds[indexNum],
-        quanEndTimedates: this.data.mealSetEndTime[indexNum],
-      })
+    this.setData({
+      index: e.detail.value,
+      timeIndex: e.detail.value,
+      cardEndDate: this.data.mealSetEndTime[indexNum],
+      mealSetId: this.data.mealSetIds[indexNum],
+      quanEndTimedates: this.data.mealSetEndTime[indexNum],
+    })
 
 
   },
 
   //获取赠送时长
-  freeTimeInput: function (e) {
+  freeTimeInput: function(e) {
     this.setData({
       freetime: e.detail.value
     })
   },
 
-//获取输入的积分
+  //获取输入的积分
   jifenInput: function(e) {
     this.setData({
       jifen: e.detail.value
     })
   },
   //获取输入的券数
-  quanInput: function (e) {
+  quanInput: function(e) {
     this.setData({
       quan: e.detail.value
     })
   },
 
   // 获取选择的券有效期
-  quanEndTimeDateChange: function (e) {
+  quanEndTimeDateChange: function(e) {
     this.setData({
       quanEndTimedates: e.detail.value
     })
@@ -123,17 +122,17 @@ Page({
 
   },
 
-//添加会员
-  addMember:function(){
-    if(this.data.phone.length==0 ||this.data.name.length==0){
-        wx.showToast({
-          title: '请填写完整的信息',
-        })
-        return;
+  //添加会员
+  addMember: function() {
+    if (this.data.phone.length == 0 || this.data.name.length == 0) {
+      wx.showToast({
+        title: '请填写完整的信息',
+      })
+      return;
     }
-    if(this.data.secondPhone.length==0 || this.data.secondPhone.length<13){
+    if (this.data.secondPhone.length == 0 || this.data.secondPhone.length < 13) {
       this.setData({
-        secondPhone:this.data.phone
+        secondPhone: this.data.phone
       })
     }
     this.setData({
@@ -142,7 +141,7 @@ Page({
     })
   },
   //确定按钮点击事件
-  modalBindaconfirm: function () {
+  modalBindaconfirm: function() {
     var params = {
       username: this.data.phone,
       name: this.data.name,
@@ -158,7 +157,7 @@ Page({
     netUtil.postRequest("user/tianjia", params, this.onStart, this.addOnSuccess, this.onFailed);
   },
   //取消按钮点击事件
-  modalBindcancel: function () {
+  modalBindcancel: function() {
     this.setData({
       modalHidden: !this.data.modalHidden,
     })
@@ -174,7 +173,33 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-   
+    this.setData({
+      modalHidden: true, //是否隐藏对话框
+      dialogMsg: "",
+      phone: "",
+      name: "",
+      
+      jifen: 0,
+      quan: 0,
+      freetime: 0,
+      secondPhone: "",
+      dates: util.formatTime(new Date()),
+      mealSetId: "1",
+      sexs: [{
+        name: '男',
+        value: '男',
+        checked:false,
+      },
+      {
+        name: '女',
+        value: '女',
+        checked: false,
+      },
+      ]
+
+
+    })
+
   },
 
   /**
@@ -230,22 +255,22 @@ Page({
       mealSetTime,
       mealSetIds,
       openCardDate: dict[0].start_time,
-      cardEndDate:dict[0].end_time,
+      cardEndDate: dict[0].end_time,
       mealSetId: mealSetIds[0],
-      quanEndTimedates:dict[0].end_time
+      quanEndTimedates: dict[0].end_time
     })
   },
-  addOnSuccess: function (res) { //onSuccess回调
-   //添加会员成功
+  addOnSuccess: function(res) { //onSuccess回调
+    //添加会员成功
     this.setData({
       modalHidden: true,
     })
-   wx.navigateTo({
-     url: '../member_info/member_info?phone=' + this.data.phone,
-   })
+    wx.navigateTo({
+      url: '../member_info/member_info?phone=' + this.data.phone + "&name=" + "",
+    })
   },
   onFailed: function(msg) { //onFailed回调
-    if (this.data.modalHidden == false){
+    if (this.data.modalHidden == false) {
       this.setData({
         modalHidden: true,
       })

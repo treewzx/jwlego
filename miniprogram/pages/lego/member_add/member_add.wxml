@@ -4,11 +4,11 @@
 
   <view class='container'>
     <text class='title'>手机号：</text>
-    <input class='content' placeholder='手机号码' type='number' bindinput="phoneInput"></input>
+    <input class='content' placeholder='手机号码' type='number' bindinput="phoneInput" value='{{phone}}'></input>
   </view>
   <view class='container'>
     <text class='title'>姓名：</text>
-    <input class='content' placeholder='会员姓名' type='string' bindinput="nameInput"></input>
+    <input class='content' placeholder='会员姓名' type='string' bindinput="nameInput" value='{{name}}'></input>
   </view>
   <view class='container'>
     <text class='title'>性别：</text>
@@ -29,7 +29,7 @@
 
   <view class='container'>
     <text class='title'>联系电话：</text>
-    <input class='content' placeholder='第二联系电话' type='number' bindinput="secondPhoneInput"></input>
+    <input class='content' placeholder='第二联系电话' type='number' bindinput="secondPhoneInput" value='{{secondPhone}}'></input>
   </view>
 
   <view class='container'>
